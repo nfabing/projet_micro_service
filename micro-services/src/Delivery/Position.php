@@ -1,9 +1,5 @@
 <?php
 
-
-namespace App\Delivery;
-
-
 class Position
 {
     /**
@@ -21,4 +17,13 @@ class Position
      */
     protected $latitude;
 
+    /**
+     * @var float
+     */
+    protected $longitude;
+
+    /**
+     * @var DateTime
+     */
+    protected $date;
 }
