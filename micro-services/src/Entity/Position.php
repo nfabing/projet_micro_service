@@ -17,8 +17,24 @@ class Position
     protected $parcelNumber;
 
     /**
+     * @var string
+     */
+    protected $adresse;
+
+    /**
      * @var float
      */
     protected $latitude;
+
+    /**
+     * @var float
+     */
+    protected $longitude;
+
+    /**
+     * @var \DateTime
+     */
+    protected $date;
+
 
 }
