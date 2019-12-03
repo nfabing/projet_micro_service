@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DeliveryController extends AbstractController
 {
+    //TODO: Route vers API (a tester en local)
     /**
      * @Route("/", name="main_homepage")
      */
