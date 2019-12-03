@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Action;
+
+
+use App\Delivery\Position;
+use App\Manager\DeliveryManager;
+
+
+class GetPosition
+{
+    public function __invoke()
+    {
+        if (empty($_GET['parcelNumber'])) {
+            throw new \Exception("Numero de colis obligatoire");
+        }
+
+        $parcelNumber = $_GET['parcelNumber'];
+
+        $manager = new DeliveryManager();
+
+        $manager->findPosition($parcelNumber);
+
+
+        //$position = new Position();
+
+
+    }
+}

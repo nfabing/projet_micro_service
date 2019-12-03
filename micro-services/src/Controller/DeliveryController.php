@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Action\GetPosition;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -13,9 +14,12 @@ class DeliveryController extends AbstractController
      */
     public function homepage()
     {
-        return $this->render('delivery/delivery.html.twig', [
+        return [
             'controller_name' => 'DeliveryController',
-        ]);
+            'path' => '/api/delivery/retrieve',
+            'method' => 'POST',
+            'action' => GetPosition::class
+        ];
     }
 
 

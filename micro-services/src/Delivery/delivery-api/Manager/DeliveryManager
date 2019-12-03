@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Manager;
+include('../connexion.php');
+
+
+class DeliveryManager
+{
+
+
+    public function findPosition(string $parcelNumber)
+    {
+
+    }
+}
