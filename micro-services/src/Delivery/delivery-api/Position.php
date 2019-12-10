@@ -7,155 +7,146 @@ namespace App\Delivery;
 class Position
 {
 
+    private $_id;
+    private $_parcelNumber;
+    private $_latitude;
+    private $_longitude;
+    private $_date;
+
     /**
      * Position constructor.
-     * @param int $id
-     * @param string $parcelNumber
-     * @param string $adresse
-     * @param float $latitude
-     * @param float $longitude
-     * @param \DateTime $date
+     * @param array $donnees
      */
-    public function __construct(int $id, string $parcelNumber, string $adresse, float $latitude, float $longitude, \DateTime $date)
+    public function __construct(array $donnees)
     {
-        $this->id = $id;
-        $this->parcelNumber = $parcelNumber;
-        $this->adresse = $adresse;
-        $this->latitude = $latitude;
-        $this->longitude = $longitude;
-        $this->date = $date;
+        $this->hydrate($donnees);
     }
 
-
     /**
-     * @var int
+     * @param array $donnees
      */
-    protected $id;
+    public function hydrate(array $donnees)
+    {
+        foreach ($donnees as $key => $value) {
+            $method = 'set' . ucfirst($key);
 
-    /**
-     * @var string
-     */
-    protected $parcelNumber;
-
-    /**
-     * @var string
-     */
-    protected $adresse;
-
-    /**
-     * @var float
-     */
-    protected $latitude;
-
-    /**
-     * @var float
-     */
-    protected $longitude;
-
-    /**
-     * @var \DateTime
-     */
-    protected $date;
-
-
-    //Getters Setters
-
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            } else {
+                trigger_error('Setter non existant');
+            }
+        }
+    }
 
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
-        return $this->id;
+        return $this->_id;
     }
 
     /**
      * @param int $id
      */
-    public function setId(int $id): void
+    public function setId($id): void
     {
-        $this->id = $id;
+        $id = (int)$id;
+
+        if (is_int($id) && $id > 0) {
+            $this->_id = $id;
+        }
+
+
+        //TODO implémenter else
     }
 
     /**
      * @return string
      */
-    public function getParcelNumber(): string
+    public function getParcelNumber()
     {
-        return $this->parcelNumber;
+        return $this->_parcelNumber;
     }
 
     /**
      * @param string $parcelNumber
      */
-    public function setParcelNumber(string $parcelNumber): void
+    public function setParcelNumber($parcelNumber): void
     {
-        $this->parcelNumber = $parcelNumber;
-    }
+        $parcelNumber = (string)$parcelNumber;
+        if (is_string($parcelNumber)) {
+            $this->_parcelNumber = $parcelNumber;
+        }
 
-    /**
-     * @return string
-     */
-    public function getAdresse(): string
-    {
-        return $this->adresse;
-    }
-
-    /**
-     * @param string $adresse
-     */
-    public function setAdresse(string $adresse): void
-    {
-        $this->adresse = $adresse;
     }
 
     /**
      * @return float
      */
-    public function getLatitude(): float
+    public function getLatitude()
     {
-        return $this->latitude;
+        return $this->_latitude;
     }
 
     /**
      * @param float $latitude
      */
-    public function setLatitude(float $latitude): void
+    public function setLatitude($latitude): void
     {
-        $this->latitude = $latitude;
+
+        $latitude = (float)$latitude;
+
+        if (is_float($latitude)) {
+            $this->_latitude = $latitude;
+        }
+
+        //TODO implémenter else
+
     }
 
     /**
      * @return float
      */
-    public function getLongitude(): float
+    public function getLongitude()
     {
-        return $this->longitude;
+        return $this->_longitude;
     }
 
     /**
      * @param float $longitude
      */
-    public function setLongitude(float $longitude): void
+    public function setLongitude($longitude): void
     {
-        $this->longitude = $longitude;
+        $longitude = (float)$longitude;
+
+        if (is_float($longitude)) {
+            $this->_longitude = $longitude;
+        }
+
+        //TODO implémenter else
+
     }
 
     /**
-     * @return \DateTime
+     * @return mixed
      */
-    public function getDate(): \DateTime
+    public function getDate()
     {
-        return $this->date;
+        return $this->_date;
     }
 
     /**
-     * @param \DateTime $date
+     * @param mixed $date
      */
-    public function setDate(\DateTime $date): void
+    public function setDate($date): void
     {
-        $this->date = $date;
+        $this->_date = $date;
+
+        //TODO implémenter if else
     }
+
+
 
 
 }
