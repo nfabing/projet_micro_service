@@ -58,22 +58,5 @@ class CardManager extends Manager
         return $card;
 
     }
-    /*
-        public function getObject(Card $card)
-        {
-            //on récupère les points d'un client avec son email
-            $_db = $this->connect();
-            $q = $_db->prepare('SELECT number FROM client WHERE email= ?');
-            $q->execute(array($card->getEmail()));
-
-            $donnees = $q->fetch(PDO::FETCH_ASSOC);
-
-            $card->hydrate([
-                'number' => $donnees['number'],
-            ]);
-
-
-        }
-    */
 
 }
