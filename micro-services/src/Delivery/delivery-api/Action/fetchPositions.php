@@ -21,7 +21,7 @@ class fetchPositions
                 $positions = $manager->get($params);
 
                 return $positions; //return array
-                //TODO traitement renvoie
+
             }
         }
 

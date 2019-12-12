@@ -1,9 +1,10 @@
 <?php
 
+//TEST UNIQUEMENT
 
-use App\Event\Action\addEvent;
+use App\Event\Action\AddEvent;
 
-include_once('Action\addEvent.php');
+include_once('Action\AddEvent.php');
 
 
 $email = 'yanis@gmail.com';
@@ -12,7 +13,7 @@ $label = 'Aller chez le coiffeur';
 $repeat = 14;
 
 
-$add = new addEvent();
+$add = new AddEvent();
 $add([
     'email' => $email,
     'date' => $date,

@@ -7,6 +7,7 @@ namespace App\Event;
 class Event
 {
 
+    private $id;
     private $email;
     private $date;
     private $label;
@@ -30,6 +31,26 @@ class Event
             } else {
                 trigger_error('Setter non existant');
             }
+        }
+
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id): void
+    {
+        $id = (int)$id;
+        if ($id > 0) {
+            $this->id = $id;
         }
 
     }
