@@ -7,7 +7,7 @@ namespace App\Delivery;
 require_once('Position.php');
 require_once('PositionManager.php');
 
-class addPosition
+class AddPosition
 {
     /**
      * @param array $params

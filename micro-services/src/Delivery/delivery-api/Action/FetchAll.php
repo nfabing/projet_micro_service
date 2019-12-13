@@ -5,7 +5,7 @@ namespace App\Delivery;
 
 require_once('PositionManager.php');
 
-class fetchAll
+class FetchAll
 {
 
     /**

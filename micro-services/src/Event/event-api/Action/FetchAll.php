@@ -3,7 +3,6 @@
 
 namespace App\Event\Action;
 
-
 use App\Event\EventManager;
 
 include_once('EventManager.php');
@@ -17,19 +16,20 @@ class FetchAll
      */
     public function __invoke($email) //$info = email
     {
+        if (!empty($email)) {
+            $manager = new EventManager();
 
-        $manager = new EventManager();
+            $exist = $manager->exist($email);
 
-        $exist = $manager->exist($email);
-        //var_dump($exist);
-        //var_dump($email);
-        if ($exist == true) {
-            $events = $manager->get($email);
+            if ($exist == true) {
+                $events = $manager->get($email);
 
-            return $events;
+                return $events;
 
-        } else {
-            echo 'ERREUR';
+            } else {
+                echo 'ERREUR';
+            }
         }
+        //TODO
     }
 }
