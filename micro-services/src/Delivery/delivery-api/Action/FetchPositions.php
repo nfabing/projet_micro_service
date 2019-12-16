@@ -3,7 +3,7 @@
 
 namespace App\Delivery;
 
-require_once('PositionManager.php');
+include_once(__DIR__.'/../PositionManager.php');
 
 class FetchPositions
 {

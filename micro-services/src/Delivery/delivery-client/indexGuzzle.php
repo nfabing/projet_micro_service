@@ -9,7 +9,7 @@ $client = new Client(['base_uri' => 'http://localhost/delivery/micro-services/pu
 
 
 //Test avec Guzzle avec envoie d'un parcelNumber. Ne fonctionne pas car je n'arrive pas faire la route qui appelle la class fetchPositions
-//$positions contient un array avec les positions d'un colis
+////$positions contient un array avec les positions d'un colis
 
 $parcelNumber = 'ABC';
 
@@ -26,12 +26,13 @@ try {
 
         //var_dump($position);
     }
-
-
 } catch (GuzzleException $e) {
 
     echo 'Erreur : ' . $e->getMessage();
 }
+
+
+
 
 
 

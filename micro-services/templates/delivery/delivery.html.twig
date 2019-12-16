@@ -2,6 +2,21 @@
 
 
 {% block body %}
+    {% block header %}
+        {{ parent() }}
+        Delivery</h1>
+        </header>
+    {% endblock %}
+    {% block content %}
+
+<form method="get" action="/TESTProjet/Microservice/public/Delivery/parcelnumber">
+    <h1> Numéro de colis : </h1><br>
+    <input name="parcelnumber" type="text" placeholder=" N° de colis" maxlength="10">
+    <input type="submit" value="Trouver">
+
+</form>
 
 
+
+    {% endblock %}
 {% endblock %}
