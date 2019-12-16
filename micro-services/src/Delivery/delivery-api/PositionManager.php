@@ -12,14 +12,15 @@ class PositionManager extends Manager
 
     public function add(Position $position)
     {
+        $date = date("Y-m-d H:i:s"); //format DATETIME
         $_db = $this->connect();
-        //ajouter une position a un colis
-        $q = $_db->prepare('INSERT INTO positions(parcelNumber, latitude, longitude, date) VALUES(?, ?, ?, NOW())');
-        $q->execute(array($position->getParcelNumber(), $position->getLatitude(), $position->getLongitude()));
+        //ajouter une position a un coli
+        $q = $_db->prepare('INSERT INTO positions(parcelNumber, latitude, longitude, date) VALUES(?, ?, ?, ?)');
+        $q->execute(array($position->getParcelNumber(), $position->getLatitude(), $position->getLongitude(), $date));
 
         $position->hydrate([
             'id' => $_db->lastInsertId(),
-            'date' => date("Y-m-d H:i:s"), //format DATETIME
+            'date' => $date,
         ]);
 
     }

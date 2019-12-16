@@ -5,7 +5,7 @@ namespace App\Delivery;
 
 include_once(__DIR__.'/../PositionManager.php');
 
-class fetchAll
+class FetchAll
 {
     /**
      * @var array
