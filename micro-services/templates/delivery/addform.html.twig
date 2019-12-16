@@ -1,0 +1,46 @@
+
+{% extends 'layout.hmtl.twig' %}
+{# on import les block template afin de les completer  #}
+{% block header %}
+{{ parent() }}
+    Delivery</header>
+{% endblock %}
+{# #}
+{% block content %}
+<form method="post" action="/TESTProjet/Microservice/public/Delivery/Add">
+
+    <div>
+
+    <span>
+        <label>N° du Colis</label>
+        <input type="text" placeholder="N° du Colis">
+    </span>
+
+    <span>
+        <label>Adresse</label>
+        <input type="text" placeholder="Adresse">
+    </span>
+
+    <span>
+        <label>Longitude</label>
+        <input type="text" placeholder="Longitude">
+    </span>
+
+    <span>
+        <label>Lantitude</label>
+        <input type="text" placeholder="Latitude">
+    </span>
+
+    <span>
+        <label>Date </label>
+        <input type="date">
+    </span>
+
+    <span>
+        <input type="submit" value="send" name="SubmitForm">
+    </span>
+
+    </div>
+</form>
+
+{% endblock %}
