@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+        Delivery</h1>
+        </header>
+    {% endblock %}
+    {% block content %}
+
+        <table>
+            <thead>
+            <tr>
+                <th>Numero du colis</th>
+                <th>latitude</th>
+                <th>longitude</th>
+                <th>date</th>
+                <th>voir</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for positions in position %}
+            <tr>
+                <td> {{ positions.parcelNumber }}</td>
+                <td> {{ positions.latitude }}</td>
+                <td> {{ positions.longitude }}</td>
+                <td> {{ positions.date }}</td>
+                <td> <a href="#">Voir sur la map</a></td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+
+
+    {% endblock %}
+{% endblock %}

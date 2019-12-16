@@ -3,19 +3,33 @@
 
 namespace App\Delivery;
 
-require_once('PositionManager.php');
+include_once(__DIR__.'/../PositionManager.php');
 
 class fetchAll
 {
+    /**
+     * @var array
+     */
+private $position;
 
     /**
      * @return array
      */
+    public function getPosition(): array
+    {
+        return $this->position;
+    }
+
+    /**
+     * @return array
+    */
     public function __invoke()
     {
         $manager = new PositionManager();
         $positions = $manager->getList();
 
+
         return $positions;
     }
+
 }

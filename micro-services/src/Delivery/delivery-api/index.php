@@ -4,9 +4,9 @@ use \App\Delivery\addPosition;
 use \App\Delivery\fetchAll;
 use \App\Delivery\fetchPositions;
 
-include_once('Action\addPosition.php');
-include_once('Action\fetchPositions.php');
-include_once('Action\fetchAll.php');
+include_once('Action/addPosition.php');
+include_once('Action/fetchPositions.php');
+include_once('Action/fetchAll.php');
 
 
 //TEST UNIQUEMENT
@@ -36,9 +36,8 @@ elseif (isset($_GET['parcelnumber'])) {
 } //recherche tout
 else {
     echo 'Recherche toutes les positions <br>';
-    $obj = new fetchAll();
+    $obj = new fetchAll;
     $positions = $obj();
-
     foreach ($positions as $position) {
         echo $position['id'] . '<br>';
         echo $position['parcelNumber'] . '<br>';

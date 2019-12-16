@@ -13,7 +13,7 @@ class PositionManager extends Manager
     public function add(Position $position)
     {
         $_db = $this->connect();
-        //ajouter une position a un coli
+        //ajouter une position a un colis
         $q = $_db->prepare('INSERT INTO positions(parcelNumber, latitude, longitude, date) VALUES(?, ?, ?, NOW())');
         $q->execute(array($position->getParcelNumber(), $position->getLatitude(), $position->getLongitude()));
 
