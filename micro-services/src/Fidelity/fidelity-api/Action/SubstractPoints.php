@@ -7,10 +7,10 @@ namespace App\Fidelity\Action;
 use App\Fidelity\Card;
 use App\Fidelity\CardManager;
 
-require_once('Card.php');
-require_once('CardManager.php');
+require_once(__DIR__ . '/../Card.php');
+require_once(__DIR__ . '/../CardManager.php');
 
-class substractPoints
+class SubstractPoints
 {
 
     /**

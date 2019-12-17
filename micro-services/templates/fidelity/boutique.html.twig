@@ -1,0 +1,13 @@
+{% extends 'layout.html.twig' %}
+{# on import les block template afin de les completer  #}
+{% block header %}
+    {{ parent() }}
+    Boutique Fidelity</header>
+{% endblock %}
+{# #}
+{% block content %}
+
+    {{ client.email }}
+    {{ client.number }}
+
+{% endblock %}

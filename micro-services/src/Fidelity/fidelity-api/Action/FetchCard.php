@@ -6,10 +6,10 @@ namespace App\Fidelity\Action;
 
 use App\Fidelity\CardManager;
 
-require_once('CardManager.php');
+require_once(__DIR__ . '/../CardManager.php');
 
 
-class fetchCard
+class FetchCard
 {
 
     /**

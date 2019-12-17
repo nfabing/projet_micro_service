@@ -1,10 +1,10 @@
-<?php
+t<?php
 
 //TEST UNIQUEMENT
 use App\Fidelity\Action\substractPoints;
 
 
-include_once('Action\substractPoints.php');
+include_once(__DIR__ . '..\Action\substractPoints.php');
 
 $substract = new substractPoints();
 $return = $substract([

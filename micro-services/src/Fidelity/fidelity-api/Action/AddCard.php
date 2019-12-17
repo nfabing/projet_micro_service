@@ -6,10 +6,10 @@ namespace App\Fidelity\Action;
 use App\Fidelity\CardManager;
 use App\Fidelity\Card;
 
-require_once('Card.php');
-require_once('CardManager.php');
+require_once(__DIR__ . '/../Card.php');
+require_once(__DIR__ . '/../CardManager.php');
 
-class addCard
+class AddCard
 {
     /**
      * @param $email
@@ -26,7 +26,7 @@ class addCard
 
             $manager->add($card);
 
-            // var_dump($card);
+            var_dump($card);
 
         } else {
             echo 'Un compte avec ce email existe déja !';

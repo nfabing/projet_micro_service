@@ -4,7 +4,7 @@
 use App\Fidelity\Action\addPoints;
 
 
-include_once('Action\addPoints.php');
+include_once(__DIR__ . '..\Action\AddPoints.php');
 
 $add = new addPoints();
 $return = $add([

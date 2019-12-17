@@ -4,7 +4,7 @@
 use App\Fidelity\Action\addCard;
 
 
-include_once('Action\addCard.php');
+include_once(__DIR__ . '..\Action\AddCard.php');
 
 $add = new addCard();
 $return = $add('nicolasfabing@gmail.com');

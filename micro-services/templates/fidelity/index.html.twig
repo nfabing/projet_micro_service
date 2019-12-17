@@ -1,0 +1,26 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} Fidelity {% endblock %}
+
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../../src/Fidelity/fidelity-client/ClientManager.js"></script>
+{% endblock %}
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+        Fidelity</h1>
+        </header>
+    {% endblock %}
+
+    {% block content %}
+
+        <form id="formulaire" name="formulaire">
+            <label for="email">E-mail : </label>
+            <input type="email" name="email">
+            <input id="emailSubmit" type="submit">
+        </form>
+
+    {% endblock %}
+{% endblock %}

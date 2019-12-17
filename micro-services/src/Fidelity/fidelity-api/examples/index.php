@@ -4,7 +4,7 @@
 
 use App\Fidelity\Action\fetchCard;
 
-include_once('Action\fetchCard.php');
+include_once(__DIR__ . '..\Action\FetchCard.php');
 
 $fetch = new fetchCard();
 $return = $fetch('nicofabing@gmail.com');
