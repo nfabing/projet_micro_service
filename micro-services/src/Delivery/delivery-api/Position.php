@@ -75,8 +75,13 @@ class Position
     public function setParcelNumber($parcelNumber): void
     {
         $parcelNumber = (string)$parcelNumber;
-        if (is_string($parcelNumber)) {
+
+        if (is_string($parcelNumber) && !empty($parcelNumber)) {
             $this->_parcelNumber = $parcelNumber;
+        } else {
+            $parcelNumber = 'C' . time();
+            $this->_parcelNumber = $parcelNumber;
+
         }
 
     }

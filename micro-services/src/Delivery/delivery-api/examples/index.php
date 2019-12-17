@@ -4,15 +4,15 @@ use \App\Delivery\AddPosition;
 use \App\Delivery\FetchAll;
 use \App\Delivery\FetchPositions;
 
-include_once('Action\AddPosition.php');
-include_once('Action\FetchPositions.php');
-include_once('Action\FetchAll.php');
+include_once('..\Action\AddPosition.php');
+include_once('..\Action\FetchPositions.php');
+include_once('..\Action\FetchAll.php');
 
 
 //TEST UNIQUEMENT
 
 //Ajout
-if (isset($_GET['parcelnumber']) && isset($_GET['latitude']) && isset($_GET['longitude'])) {
+if (isset($_GET['latitude']) && isset($_GET['longitude'])) {
     echo 'Ajout d\'une position avec comme paramètres : ' . $_GET['parcelnumber'] . ', ' . $_GET['latitude'] . ', ' . $_GET['longitude'] . '<br><br>';
     $obj = new AddPosition();
     $obj([
@@ -28,22 +28,33 @@ elseif (isset($_GET['parcelnumber'])) {
     $obj = new FetchPositions();
     $positions = $obj($_GET['parcelnumber']); //__invoke
 
+    //var_dump($positions);
+
     foreach ($positions as $position) {
-        echo $position['id'] . '<br>';
-        echo $position['parcelNumber'] . '<br>';
+        //echo $position['id'] . '<br>';
+        echo 'Numéro de colis : ' . $position['parcelNumber'] . '<br>';
+        echo 'Latitude : ' . $position['latitude'] . '<br>';
+        echo 'Longitude : ' . $position['longitude'] . '<br><br>';
         //var_dump($position);
     }
 } //recherche tout
 else {
-    echo 'Recherche toutes les positions <br>';
+    echo 'Recherche de tous les colis <br>';
+
+
     $obj = new FetchAll();
     $positions = $obj();
 
     foreach ($positions as $position) {
-        echo $position['id'] . '<br>';
-        echo $position['parcelNumber'] . '<br>';
+        //echo $position['id'] . '<br>';
+        echo 'Id colis : ' . $position['id'] . '<br>';
+        echo 'Numéro de colis : ' . $position['parcelNumber'] . '<br><br>';
+        //echo 'Latitude : ' . $position['latitude'] . '<br>';
+        //echo 'Longitude : ' .$position['longitude'] . '<br><br>';
         //var_dump($position);
     }
+
+
 }
 
 

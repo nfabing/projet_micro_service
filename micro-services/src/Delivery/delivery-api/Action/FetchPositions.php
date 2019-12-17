@@ -3,7 +3,7 @@
 
 namespace App\Delivery;
 
-include_once(__DIR__.'/../PositionManager.php');
+require_once(__DIR__ . '\..\PositionManager.php');
 
 class FetchPositions
 {
@@ -17,7 +17,10 @@ class FetchPositions
             $manager = new PositionManager();
             $count = $manager->exist($params);
 
-            if ($count > 0) {
+            // var_dump($count);
+
+            if ($count == true) {
+
                 $positions = $manager->get($params);
 
                 return $positions; //return array
