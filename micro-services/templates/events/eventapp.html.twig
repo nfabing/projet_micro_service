@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+        Event</h1>
+        <script src="../../src/Event/event-client/EventClient.js"></script>
+        </header>
+    {% endblock %}
+    {% block content %}
+
+        <script>
+            function AddTheEvent() {
+            eventobject = new EventClient();
+            email=document.getElementById("email");
+            date=document.getElementById("date");
+            label=document.getElementById("label");
+            repeat=document.getElementById("repeat");
+            eventobject.AddingNewEvent(email,date,label,repeat);
+            }
+
+        </script>
+        <input type="text" id="email">
+        <input type="text" id="date">
+        <input type="text" id="label">
+        <input type="text" id="repeat">
+        <button onclick="AddTheEvent()">Test AddEvent</button>
+
+
+    {% endblock %}
+{% endblock %}

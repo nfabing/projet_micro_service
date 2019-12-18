@@ -1,0 +1,17 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+        Event</h1>
+        <script src="../../src/Event/event-client/EventClient.js"></script>
+        </header>
+    {% endblock %}
+    {% block content %}
+        <h1>Acceuil</h1>
+        <a href="add">Ajouter</a>
+        <a href="debug">Debugage</a>
+        <a href="fetchevent">Recupèrer évenements</a>
+    {% endblock %}
+{% endblock %}
