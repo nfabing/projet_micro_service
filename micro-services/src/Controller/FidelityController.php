@@ -44,8 +44,8 @@ class FidelityController extends AbstractController
      */
     public function fetchCard(Request $request)
     {
-        $email = 'nicofabing@gmail.com';
-        //$email = $request->query->get('email');
+        //$email = 'nicofabing@gmail.com';
+        $email = $request->query->get('email');
         //var_dump($email);
         $fetch = new fetchCard();
         $client = $fetch($email);

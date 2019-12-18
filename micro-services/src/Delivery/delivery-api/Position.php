@@ -148,7 +148,6 @@ class Position
     {
         $this->_date = $date;
 
-        //TODO implémenter if else
     }
 
 

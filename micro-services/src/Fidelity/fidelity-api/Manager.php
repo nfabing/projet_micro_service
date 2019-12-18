@@ -4,6 +4,7 @@
 namespace App\Fidelity;
 
 
+use Exception;
 use PDO;
 use PDOException;
 
@@ -17,14 +18,8 @@ class Manager
 
     public function connect()
     {
-        try {
-            $_db = new PDO('mysql:host=' . self::HOST_NAME . '; dbname=' . self::DATABASE, self::USER_NAME, self::PASSWORD);
-            return $_db;
-
-        } catch (PDOException $e) {
-            echo "Error!: " . $e->getMessage() . "<br/>";
-            die();
-        }
+        $_db = new PDO('mysql:host=' . self::HOST_NAME . '; dbname=' . self::DATABASE, self::USER_NAME, self::PASSWORD);
+        return $_db;
     }
 
 

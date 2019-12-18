@@ -26,7 +26,7 @@ class PositionManager extends Manager
 
             $idColis = $_db->lastInsertId();
 
-            $q = $_db->prepare('INSERT INTO positions(parcelNumber, latitude, longitude, date) VALUES(?, ?, ?, ?)');
+            $q = $_db->prepare('INSERT INTO positions(parcelNumberId, latitude, longitude, date) VALUES(?, ?, ?, ?)');
             $q->execute(array($idColis, $position->getLatitude(), $position->getLongitude(), $position->getDate()));
         } elseif ($exist == true) {
 
