@@ -1,11 +1,33 @@
 $(function () {
 
-//envoi du formulaire
-    $("#formulaire").submit(function (event) {
+    /*
+        $("#formulaire").submit(function (event) {
 
-        alert('test');
-        event.preventDefault();
-    });
+            alert('test');
+            event.preventDefault();
+        });
+
+     */
+
+    $("#addPoints").click(function (event) {
+
+        var url = '/delivery/micro-services/public/fidelity/add';
+        var email = '?email=' + $('#emailClient').text();
+
+        // alert($("#emailClient").text());
+        fetch(url + email + '&number=100',
+            {
+                method: "GET",
+            })
+            .then((response) => response.json())
+            .then((Data) => {
+                console.log(Data);
+                $("#pointsClient").html(Data);
+                //return responseData;
+            })
+            .catch(error => console.error(error))
+    })
+
 
 });
 

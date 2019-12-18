@@ -16,6 +16,7 @@ class AddPoints
 
     /**
      * @param array $donnees
+     * @return mixed
      */
     public function __invoke(array $donnees) //$donnees = email, points a ajouter
     {
@@ -34,7 +35,11 @@ class AddPoints
                 $card->addPoints($donnees['number']);
                 $manager->update($card);
 
-                //var_dump($card);
+
+                return $card->getNumber();
+
+            } else {
+                throw new Exception('Aucun compte liée a ce mail !');
             }
         } catch (Exception $e) {
             $e->getMessage();

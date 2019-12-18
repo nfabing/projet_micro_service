@@ -38,6 +38,8 @@ class Card
     public function addPoints($points)
     {
         //ajout de $points
+        $points = (int)$points;
+
         if (is_int($points) && $points > 0) {
             $points = $this->getNumber() + $points;
             $this->setNumber($points);
@@ -53,6 +55,7 @@ class Card
     public function substractPoints($points)
     {
         //soustraction de $points
+        $points = (int)$points;
 
         $points = $this->getNumber() - $points;
 

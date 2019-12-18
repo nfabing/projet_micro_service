@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 
+use App\Fidelity\Action\AddPoints;
 use App\Fidelity\Action\fetchCard;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 require_once(__DIR__ . '/../Fidelity/fidelity-api/Action/FetchCard.php');
+require_once(__DIR__ . '/../Fidelity/fidelity-api/Action/AddPoints.php');
 
 class FidelityController extends AbstractController
     /**
@@ -38,19 +40,19 @@ class FidelityController extends AbstractController
     }
 
     /**
-     * @Route("/fetch", name="fetch_", methods={"GET"})
+     * @Route("/fetch", name="fetch_", methods={"POST"})
      * @param Request $request
      * @return Response
      */
     public function fetchCard(Request $request)
     {
-        //$email = 'nicofabing@gmail.com';
-        $email = $request->query->get('email');
+
+        $email = $request->request->get('email');
         //var_dump($email);
         $fetch = new fetchCard();
         $client = $fetch($email);
 
-        //return new Response('Hello world');
+
         return $this->render('fidelity/boutique.html.twig', array(
             'client' => array(
                 'email' => $client['email'],
@@ -62,12 +64,24 @@ class FidelityController extends AbstractController
 
     }
 
+
     /**
      * @Route("/add", name="add", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function addPoints()
+    public function addPoints(Request $request)
     {
+        $email = $request->query->get('email');
+        $number = $request->query->get('number');
 
+        $points = new AddPoints();
+        $point = $points([
+            'email' => $email,
+            'number' => $number,
+        ]);
+
+        return new JsonResponse($point);
     }
 
     /**

@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-
-
 use App\Delivery\Action\AddPosition;
 use App\Delivery\Action\FetchAll;
 
@@ -49,13 +47,13 @@ class DeliveryController extends AbstractController
         $long = $request->query->get('longitude');
 
         $addpos = new AddPosition();
-        $addpos([
+        $position = $addpos([
             'parcelNumber' => $parcelNumber,
             'longitude' => $long,
             'latitude' => $lat,
         ]);
 
-        return new Response("<br><br> POSITION AJOUTER !");
+        return new Response($position);
 
     }
 

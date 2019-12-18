@@ -4,10 +4,15 @@
     {{ parent() }}
     Boutique Fidelity</header>
 {% endblock %}
-{# #}
+{% block scripts %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../../src/Fidelity/fidelity-client/ClientManager.js"></script>
+{% endblock %}
 {% block content %}
+    <h2> Bienvenus <span id="emailClient">{{ client.email }}</span></h2><br>
+    <h2> Solde de points : <span id="pointsClient">{{ client.number }}</span></h2>
 
-    {{ client.email }}
-    {{ client.number }}
+    <button id="addPoints"> Ajouter Point</button>
+
 
 {% endblock %}
