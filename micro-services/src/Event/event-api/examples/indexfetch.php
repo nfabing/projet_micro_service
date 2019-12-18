@@ -5,7 +5,7 @@
 
 use App\Event\Action\FetchAll;
 
-include_once('Action\FetchAll.php');
+require_once(__DIR__ . '/../Action/FetchAll.php');
 
 $email = 'yanis@gmail.com';
 

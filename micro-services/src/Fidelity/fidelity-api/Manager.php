@@ -3,10 +3,8 @@
 
 namespace App\Fidelity;
 
-
-use Exception;
 use PDO;
-use PDOException;
+
 
 class Manager
 {

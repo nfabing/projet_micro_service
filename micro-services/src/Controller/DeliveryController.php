@@ -4,8 +4,8 @@ namespace App\Controller;
 
 
 
-use App\Delivery\AddPosition;
-use App\Delivery\FetchAll;
+use App\Delivery\Action\AddPosition;
+use App\Delivery\Action\FetchAll;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -1,7 +1,10 @@
 <?php
 
 
-namespace App\Delivery;
+namespace App\Delivery\Action;
+
+use App\Delivery\PositionManager;
+use Exception;
 
 require_once(__DIR__ . '\..\PositionManager.php');
 
@@ -13,20 +16,25 @@ class FetchPositions
      */
     public function __invoke($params) //params = parcelNumber
     {
-        if (isset($params)) {
-            $manager = new PositionManager();
-            $count = $manager->exist($params);
+        try {
+            if (isset($params)) {
+                $manager = new PositionManager();
+                $count = $manager->exist($params);
 
-            // var_dump($count);
+                // var_dump($count);
 
-            if ($count == true) {
+                if ($count == true) {
 
-                $positions = $manager->get($params);
+                    $positions = $manager->get($params);
 
-                return $positions; //return array
+                    return $positions; //return array
 
+                }
             }
+        } catch (Exception $e) {
+            $e->getMessage();
         }
+
 
     }
 

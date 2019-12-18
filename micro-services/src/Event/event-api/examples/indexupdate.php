@@ -4,7 +4,7 @@
 
 use App\Event\Action\UpdateEvent;
 
-include_once('Action\UpdateEvent.php');
+require_once(__DIR__ . '/../Action/UpdateEvent.php');
 
 
 $id = 5;

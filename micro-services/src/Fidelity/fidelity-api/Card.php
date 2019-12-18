@@ -4,6 +4,8 @@
 namespace App\Fidelity;
 
 
+use Exception;
+
 class Card
 {
     private $_email;
@@ -46,6 +48,7 @@ class Card
     /**
      * @param $points
      * @return bool
+     * @throws Exception
      */
     public function substractPoints($points)
     {
@@ -55,11 +58,11 @@ class Card
 
         if ($points >= 0) {
             $this->setNumber($points);
-            return true;
+
 
         } else {
 
-            return false;
+            throw new Exception('Pas assez de points ! ');
         }
     }
 

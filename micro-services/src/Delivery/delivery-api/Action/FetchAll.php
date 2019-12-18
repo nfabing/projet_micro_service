@@ -1,8 +1,9 @@
 <?php
 
 
-namespace App\Delivery;
+namespace App\Delivery\Action;
 
+use App\Delivery\PositionManager;
 use Exception;
 
 require_once(__DIR__ . '\..\PositionManager.php');

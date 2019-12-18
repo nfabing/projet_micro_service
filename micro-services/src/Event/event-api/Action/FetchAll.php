@@ -4,8 +4,9 @@
 namespace App\Event\Action;
 
 use App\Event\EventManager;
+use Exception;
 
-include_once('EventManager.php');
+include_once(__DIR__ . '/../EventManager.php');
 
 class FetchAll
 {
@@ -16,20 +17,26 @@ class FetchAll
      */
     public function __invoke($email) //$info = email
     {
-        if (!empty($email)) {
-            $manager = new EventManager();
 
-            $exist = $manager->exist($email);
+        try {
+            if (!empty($email)) {
+                $manager = new EventManager();
 
-            if ($exist == true) {
-                $events = $manager->get($email);
+                $exist = $manager->exist($email);
 
-                return $events;
+                if ($exist == true) {
+                    $events = $manager->get($email);
 
-            } else {
-                echo 'ERREUR';
+                    return $events;
+
+                } else {
+                    throw new Exception('ERREUR');
+
+                }
             }
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-        //TODO
+
     }
 }

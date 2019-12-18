@@ -4,7 +4,7 @@
 
 use App\Event\Action\AddEvent;
 
-include_once('Action\AddEvent.php');
+require_once(__DIR__ . '/../Action/AddEvent.php');
 
 
 $email = 'yanis@gmail.com';
