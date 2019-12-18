@@ -49,7 +49,6 @@ class Card
 
     /**
      * @param $points
-     * @return bool
      * @throws Exception
      */
     public function substractPoints($points)
@@ -60,15 +59,14 @@ class Card
         $points = $this->getNumber() - $points;
 
         if ($points >= 0) {
-            $this->setNumber($points);
 
+            $this->setNumber($points);
 
         } else {
 
             throw new Exception('Pas assez de points ! ');
         }
     }
-
 
     /**
      * @return mixed
@@ -80,17 +78,17 @@ class Card
 
     /**
      * @param mixed $email
+     * @throws Exception
      */
     public function setEmail($email): void
     {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->_email = $email;
         } else {
-            //TODO implémenter else
-            echo 'Email Invalide';
-            die();
-        }
 
+            throw new Exception('Email non valide !');
+
+        }
     }
 
     /**

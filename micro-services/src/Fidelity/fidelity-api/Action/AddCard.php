@@ -14,6 +14,7 @@ class AddCard
 {
     /**
      * @param $email
+     * @return array
      */
     public function __invoke($email)
     {
@@ -28,7 +29,11 @@ class AddCard
 
                 $manager->add($card);
 
-                var_dump($card);
+                $data = [
+                    'email' => $card->getEmail(),
+                    'number' => $card->getNumber(),
+                ];
+                return $data;
 
             } else {
                 throw new Exception('Un compte avec ce email existe déja !');

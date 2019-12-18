@@ -16,6 +16,7 @@ class SubstractPoints
 
     /**
      * @param array $donnees
+     * @return mixed
      * @throws Exception
      */
     public function __invoke(array $donnees) //$donnees = email, points a ajouter
@@ -35,7 +36,8 @@ class SubstractPoints
                 $card->substractPoints($donnees['number']);
                 $manager->update($card);
 
-                //var_dump($card);
+                return $card->getNumber();
+
             }
         } catch (Exception $e) {
             $e->getMessage();

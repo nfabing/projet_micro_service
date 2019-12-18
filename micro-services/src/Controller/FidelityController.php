@@ -4,9 +4,12 @@
 namespace App\Controller;
 
 
+use App\Fidelity\Action\AddCard;
 use App\Fidelity\Action\AddPoints;
 use App\Fidelity\Action\fetchCard;
 
+use App\Fidelity\Action\SubstractPoints;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,6 +18,8 @@ use Symfony\Component\HttpFoundation\Response;
 
 require_once(__DIR__ . '/../Fidelity/fidelity-api/Action/FetchCard.php');
 require_once(__DIR__ . '/../Fidelity/fidelity-api/Action/AddPoints.php');
+require_once(__DIR__ . '/../Fidelity/fidelity-api/Action/SubstractPoints.php');
+require_once(__DIR__ . '/../Fidelity/fidelity-api/Action/AddCard.php');
 
 class FidelityController extends AbstractController
     /**
@@ -33,9 +38,16 @@ class FidelityController extends AbstractController
 
     /**
      * @Route("/new", name="new", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
      */
-    public function newCard()
+    public function newCard(Request $request)
     {
+        $email = $request->query->get('email');
+        $card = new AddCard();
+        $client = $card($email);
+
+        return new JsonResponse($client);
 
     }
 
@@ -48,7 +60,6 @@ class FidelityController extends AbstractController
     {
 
         $email = $request->request->get('email');
-        //var_dump($email);
         $fetch = new fetchCard();
         $client = $fetch($email);
 
@@ -60,10 +71,7 @@ class FidelityController extends AbstractController
             ),
         ));
 
-        //return new JsonResponse($client);
-
     }
-
 
     /**
      * @Route("/add", name="add", methods={"GET"})
@@ -86,9 +94,22 @@ class FidelityController extends AbstractController
 
     /**
      * @Route("/substract", name="substract", methods={"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     * @throws Exception
      */
-    public function substractPoints()
+    public function substractPoints(Request $request)
     {
+        $email = $request->query->get('email');
+        $number = $request->query->get('number');
+
+        $points = new SubstractPoints();
+        $point = $points([
+            'email' => $email,
+            'number' => $number,
+        ]);
+
+        return new JsonResponse($point);
 
     }
 
