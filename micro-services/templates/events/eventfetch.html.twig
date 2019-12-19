@@ -1,20 +1,25 @@
 {% extends 'layout.html.twig' %}
-    {% block scripts %}
-        <script src="../../src/Event/event-client/EventClient.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    {% endblock %}
 
 {% block body %}
     {% block header %}
         {{ parent() }}
         Event</h1>
-
         </header>
     {% endblock %}
-
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{{ asset('eventclient/EventClient.js') }}"></script>
+    {% endblock %}
     {% block content %}
-
-        <input type="text" id="email">
+        <h1>Recuperer evenement</h1>
+        <br>
+        <a href="home">Acceuil</a>
+        <br>
+        <a href="debug">Debugage</a>
+        <br>
+        <a href="fetchevent">Recupèrer évenements</a>
+        <br>
+        <input type="text" id="email_for_fetch">
         <button id="getevent">Récupèrer Event</button>
 
 
