@@ -30,9 +30,10 @@ class FetchPositions
                     return $positions; //return array
 
                 }
+
             }
         } catch (Exception $e) {
-            $e->getMessage();
+            echo $e->getMessage();
         }
 
 

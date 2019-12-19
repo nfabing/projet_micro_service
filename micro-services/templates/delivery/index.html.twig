@@ -4,7 +4,7 @@
 {% block body %}
     {% block header %}
         {{ parent() }}
-        Delivery</h1>
+        <h1 class="title">Delivery</h1>
         </header>
     {% endblock %}
     {% block content %}
@@ -58,6 +58,8 @@
         transform: translate(-50%, -50%);
     }
 </style>
+        <a href="/delivery/micro-services/public/delivery/new"> Ajouter une position</a>
+
         <form method="GET" action="/delivery/micro-services/public/delivery/parcelnumber">
 
             <div class="wrap">
@@ -67,6 +69,12 @@
                         <i class="fa fa-search"></i>
                     </button>
                 </div>
+                {% if data.erreur is defined %}
+                    {{ data.erreur }}
+                {% endif %}
+                {% if data.status is defined %}
+                    {{ data.status }}
+                {% endif %}
             </div>
 
             {#<input name="parcelnumber" type="text" placeholder=" N° de colis" maxlength="10">
@@ -74,7 +82,7 @@
 
         </form>
 
-        <a href="/delivery/micro-services/public/delivery/new"> Ajouter une position</a>
+
 
 
 

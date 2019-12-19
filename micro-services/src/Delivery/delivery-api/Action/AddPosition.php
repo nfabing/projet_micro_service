@@ -31,6 +31,7 @@ class AddPosition
             $manager->add($position, $exist);
 
             return $position->getParcelNumber();
+
         } catch (Exception $e) {
             $e->getMessage();
         }

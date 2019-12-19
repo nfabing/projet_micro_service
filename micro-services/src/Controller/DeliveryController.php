@@ -3,9 +3,6 @@
 namespace App\Controller;
 
 
-
-
-
 use App\Delivery\Action\AddPosition as Add_pos;
 use App\Delivery\Action\FetchAll;
 use App\Delivery\Action\FetchPositions as f_pos;
@@ -21,10 +18,12 @@ require_once(__DIR__ . '/../Delivery/delivery-api/Action/FetchAll.php');
 require_once(__DIR__ . '/../Delivery/delivery-api/Action/FetchPositions.php');
 require_once(__DIR__ . '/../Delivery/delivery-api/Action/AddPosition.php');
 
+require_once(__DIR__ . '/../Delivery/delivery-client/DeliveryClient.php');
+
 
 class DeliveryController extends AbstractController
     /**
-     * @Route("/Delivery", name="delivery_")
+     * @Route("/delivery", name="delivery_")
      */
 {
     /**
@@ -33,7 +32,7 @@ class DeliveryController extends AbstractController
      */
     public function find(): Response
     {
-        return $this->render('delivery/delivery.html.twig');
+        return $this->render('delivery/index.html.twig');
     }
 
     /**
@@ -53,15 +52,28 @@ class DeliveryController extends AbstractController
     public function Parcelnumber(Request $request)
     {
         $parcelnumber = $request->query->get('parcelnumber');
+        if (!empty($parcelnumber)) {
+            $client = new DeliveryClient();
+            $positions = $client->getPosition($parcelnumber);
 
-        $client = new DeliveryClient();
-        $positions = $client->getPosition($parcelnumber);
+            if (empty($positions)) {
+                return $this->render('delivery/index.html.twig', array(
+                    'data' => array(
+                        'erreur' => 'Colis inexistant !',
+                    ),
+                ));
 
-        return $this->render('delivery/getPosition.html.twig', [
-            'position' => $positions,
-        ]);
+            } else {
+                return $this->render('delivery/getPosition.html.twig', [
+
+                    'position' => $positions,
+                ]);
+            }
+        } else {
+            return $this->render('delivery/index.html.twig');
+        }
+
     }
-
 
 
     /**
@@ -83,11 +95,14 @@ class DeliveryController extends AbstractController
             'latitude' => $lat,
         ]);
 
-        return new Response("<br><br> POSITION AJOUTER ! <br> Numéro de colis : ".$p_Num);
+        return $this->render('delivery/index.html.twig', array(
+            'data' => array(
+                'status' => ' POSITION AJOUTER ! Numéro de colis : ' . $p_Num,
+            ),
+        ));
+
 
     }
-
-
 
 
     /**

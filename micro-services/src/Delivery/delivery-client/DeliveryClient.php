@@ -11,6 +11,11 @@ use GuzzleHttp\Client;
 class DeliveryClient extends Client
 {
 
+    public function setUri()
+    {
+        return $client = new Client(['base_uri' => 'http://localhost/delivery/micro-services/public/']);
+    }
+
 
     /**
      * @param string $parcelnumber
@@ -18,7 +23,7 @@ class DeliveryClient extends Client
      */
     public function getPosition(string $parcelnumber): array
     {
-        $client = new Client(['base_uri' => '/delivery/micro-services/public/']);
+        $client = $this->setUri();
 
         $response = $client->request('GET', 'delivery/findParcel?parcelnumber=' . $parcelnumber);
         $positions = $response->getBody();
@@ -43,7 +48,7 @@ class DeliveryClient extends Client
      */
     public function getAll(): array
     {
-        $client = new Client(['base_uri' => '/delivery/micro-services/public/']);
+        $client = $this->setUri();
 
         $response = $client->request('GET', 'delivery/all');
         $positions = $response->getBody();
@@ -54,7 +59,7 @@ class DeliveryClient extends Client
 
     public function addPosition(string $parcelnumber, string $Longitude, string $Latitude)
     {
-        $client = new Client(['base_uri' => '/delivery/micro-services/public/']);
+        $client = $this->setUri();
 
         $response = $client->request('GET', 'delivery/addPosition?parcelnumber=' . $parcelnumber . '&latitude=' . $Latitude . '&longitude=' . $Longitude);
 

@@ -27,25 +27,7 @@ $(function () {
                         $(this).prop('disabled', false);
                     }
                 });
-                /*
-                                if(Data >= 50){
-                                    $("#substractpoint50").removeClass("grise");
-                                    $("#substractpoint50").attr('disabled', 'false');
-                                }
-                                if(Data >= 150){
-                                    $("#substractpoint150").removeClass("grise");
-                                    $("#substractpoint150").attr('disabled', 'false');
-                                }
-                                if(Data >= 200){
-                                    $("#substractpoint200").removeClass("grise");
-                                    $("#substractpoint200").attr('disabled', 'false');
-                                }
-                                if(Data >= 500){
-                                    $("#substractpoint500").removeClass("grise");
-                                    $("#substractpoint500").attr('disabled', 'false');
-                                }
-                                */
-                //return responseData;
+
             })
             .catch(error => console.error(error))
     });
@@ -66,7 +48,7 @@ function substractpoint(point){
         .then((Data) => {
             console.log(Data.number);
             console.log(Data.result);
-            var points = Data.number
+            var points = Data.number;
 
             if (Data.result === 'true') {
 
@@ -85,27 +67,6 @@ function substractpoint(point){
                 alert('Impossible');
             }
 
-
-            /*
-            if(Data < 50){
-                $("#substractpoint50").addClass("grise");
-                $("#substractpoint50").attr('disabled', 'true');
-            }
-            if(Data < 150){
-                $("#substractpoint150").addClass("grise");
-                $("#substractpoint150").attr('disabled', 'true');
-            }
-            if(Data < 200){
-                $("#substractpoint200").addClass("grise");
-                $("#substractpoint200").attr('disabled', 'true');
-            }
-            if(Data < 500){
-                $("#substractpoint500").addClass("grise");
-                $("#substractpoint500").attr('disabled', 'true');
-            }
-
-             */
-            //return responseData;
         })
         .catch(error => console.error(error))
 

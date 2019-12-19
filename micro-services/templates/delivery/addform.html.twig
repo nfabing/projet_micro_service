@@ -2,11 +2,12 @@
 {# on import les block template afin de les completer  #}
 {% block header %}
     {{ parent() }}
-    Delivery</header>
+    <h1 class="title">Delivery</h1>
+    </header>
 {% endblock %}
 {# #}
 {% block content %}
-    <form method="post" action="/TESTProjet/Microservice/public/Delivery/addtest">
+    <form method="post" action="/delivery/micro-services/public/delivery/addtest">
 
         <div>
 
@@ -21,10 +22,9 @@
     </span>
 
             <span>
-        <label>Lantitude</label>
+        <label>Latitude</label>
         <input type="text" name="latitude" placeholder="Latitude">
     </span>
-
 
 
             <span>
