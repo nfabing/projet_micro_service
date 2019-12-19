@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+
+{% block body %}
+    {% block header %}
+        {{ parent() }}
+        Event</h1>
+        </header>
+    {% endblock %}
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="{{ asset('eventclient/EventClient.js') }}"></script>
+    {% endblock %}
+    {% block content %}
+        <h1>Acceuil</h1>
+        <br>
+        <a href="add">Ajouter</a>
+        <br>
+        <a href="debug">Debugage</a>
+        <br>
+        <a href="home">Acceuil</a>
+        <br>
+        <input type="text" id="email">
+        <input type="text" id="date">
+        <input type="text" id="label">
+        <input type="text" id="repeat">
+        <button onclick="AddTheEvent()">Test AddEvent</button>
+
+
+    {% endblock %}
+{% endblock %}
