@@ -1,0 +1,52 @@
+.button {
+    background-color: lightblue; /* Green */
+    border: none;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.window
+{
+    background-color: lightblue;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 135%;
+}
+.inputfield
+{
+    font-weight: bold;
+    margin:0px;
+    padding-bottom:20px;
+    background-color: #00aa88;
+    text-align: center;
+}
+input {
+    border: none;
+}
+input[type=number] {
+    width: 50px;
+}
+#demo
+{
+    margin:0px;
+    background-color: lightblue;
+    font-weight: bold;
+    line-height: 150%;
+}
+.modes
+{
+    text-align: center;
+    font-weight: bold;
+    margin:0px;
+    padding-top:20px;
+    padding-bottom:20px;
+    background-color: #00aa88;
+}
+.time
+{
+    display: inline;
+    background-color: white;
+}

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Event\Action\AddEvent;
 use App\Event\Action\FetchAll;
 use App\Event\Action\RemoveEvent;
+use App\Event\Action\UpdateEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,26 +24,13 @@ class EventController extends AbstractController
      */
 {
     /**
-     * @Route("/debug", name="debug")
-     */
-    public function Debug()
-    {
-        return $this->render('events/eventdebug.html.twig');
-    }
-    /**
      * @Route("/home", name="home")
      */
     public function Home()
     {
         return $this->render('events/eventhome.html.twig');
     }
-    /**
-     * @Route("/add", name="add")
-     */
-    public function Add(): Response
-    {
-        return $this->render('events/eventadd.html.twig');
-    }
+
     /**
      * @Route("/new", name="new", methods={"POST"})
      * @param Request $request
@@ -81,21 +69,26 @@ public function FetchEvent(Request $request)
     return new JsonResponse($client);
 }
     /**
-     * @Route("/update", name="new", methods={"POST"})
+     * @Route("/update", name="update", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
     public function UpdateEvent(Request $request)
     {
         $email = $request->query->get('email');
-        $fetch = new FetchAll();
-        $client = $fetch($email);
+        $id = $request->query->get("id");
+        $label = $request->query->get("label");
+        $date = $request->query->get("date");
+        $repeat = $request->query->get("repeat");
+        $donnees=array("id"=>$id,"email"=>$email,"date"=>$date,"label"=>$label,"repeat"=>$repeat);
+        $update = new UpdateEvent();
+        $client = $update($donnees);
 
 
         return new JsonResponse($client);
     }
     /**
-     * @Route("/remove", name="new", methods={"POST"})
+     * @Route("/remove", name="remove", methods={"POST"})
      * @param Request $request
      * @return JsonResponse
      */
