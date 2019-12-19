@@ -3,7 +3,7 @@
 
 namespace App\Fidelity;
 
-include_once('Manager.php');
+include_once(__DIR__ . '/Manager.php');
 
 use PDO;
 

@@ -50,7 +50,7 @@
     }
 
     /*Resize the wrap to see the search bar change!*/
-    .wrap{
+    .wrap {
         width: 30%;
         position: absolute;
         top: 50%;
@@ -58,24 +58,23 @@
         transform: translate(-50%, -50%);
     }
 </style>
-<form method="get" action="/TESTProjet/Microservice/public/Delivery/parcelnumber">
+        <form method="GET" action="/delivery/micro-services/public/delivery/parcelnumber">
 
+            <div class="wrap">
+                <div class="search">
+                    <input name="parcelnumber" type="text" class="searchTerm" placeholder="N° de colis">
+                    <button type="submit" class="searchButton">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
 
-    <div class="wrap">
-        <div class="search">
-            <input name="parcelnumber" type="text" class="searchTerm" placeholder="N° de colis">
-            <button type="submit" class="searchButton">
-                <i class="fa fa-search"></i>
-            </button>
-        </div>
-    </div>
+            {#<input name="parcelnumber" type="text" placeholder=" N° de colis" maxlength="10">
+            <input type="submit" value="Trouver">#}
 
-    {#<input name="parcelnumber" type="text" placeholder=" N° de colis" maxlength="10">
-    <input type="submit" value="Trouver">#}
+        </form>
 
-</form>
-
-        <a href="/TESTProjet/Microservice/public/Delivery/new"> Ajouter une position</a>
+        <a href="/delivery/micro-services/public/delivery/new"> Ajouter une position</a>
 
 
 

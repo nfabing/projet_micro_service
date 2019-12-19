@@ -6,7 +6,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 
 echo "test";
-$client = new Client(['base_uri' => 'http://localhost:8888/TESTProjet/Microservice/public/']);
+$client = new Client(['base_uri' => 'delivery/micro-services/public/']);
 
 
 //Test avec Guzzle avec envoie d'un parcelNumber. Ne fonctionne pas car je n'arrive pas faire la route qui appelle la class fetchPositions

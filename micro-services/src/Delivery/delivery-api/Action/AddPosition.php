@@ -14,6 +14,7 @@ class AddPosition
 {
     /**
      * @param array $params
+     * @return string
      */
     public function __invoke(array $params) //params = parcelNumber, latitude, longitude
     {
@@ -33,7 +34,6 @@ class AddPosition
         } catch (Exception $e) {
             $e->getMessage();
         }
-
 
     }
 }

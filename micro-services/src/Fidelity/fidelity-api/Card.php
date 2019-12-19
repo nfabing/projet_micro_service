@@ -6,7 +6,9 @@ namespace App\Fidelity;
 
 use Exception;
 
-class Card
+require_once(__DIR__ . '/Hydrate.php');
+
+class Card extends Hydrate
 {
     private $_email;
     private $_number = 0;
@@ -17,20 +19,6 @@ class Card
         $this->hydrate($donnees);
     }
 
-
-    public function hydrate(array $donnees)
-    {
-        foreach ($donnees as $key => $value) {
-            $method = 'set' . ucfirst($key);
-
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-            } else {
-                trigger_error('Setter non existant');
-                die;
-            }
-        }
-    }
 
     /**
      * @param $points
@@ -49,6 +37,7 @@ class Card
 
     /**
      * @param $points
+     * @return bool
      * @throws Exception
      */
     public function substractPoints($points)
@@ -58,13 +47,15 @@ class Card
 
         $points = $this->getNumber() - $points;
 
+
         if ($points >= 0) {
 
             $this->setNumber($points);
+            return true;
 
         } else {
 
-            throw new Exception('Pas assez de points ! ');
+            return false;
         }
     }
 

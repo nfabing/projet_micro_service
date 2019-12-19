@@ -4,7 +4,7 @@ namespace App\Delivery;
 
 use PDO;
 
-require_once('Manager.php');
+require_once(__DIR__ . '/Manager.php');
 
 
 class PositionManager extends Manager
@@ -23,6 +23,7 @@ class PositionManager extends Manager
         if ($exist == false) {
             $q = $_db->prepare('INSERT INTO parcel(parcelNumber) VALUES(?)');
             $q->execute(array($position->getParcelNumber()));
+
 
             $q = $_db->prepare('INSERT INTO positions(parcelNumberId, latitude, longitude, date) VALUES((
             SELECT id FROM parcel WHERE parcelNumber = ?), ?, ?, ?)');
@@ -65,7 +66,7 @@ class PositionManager extends Manager
 
         //On ajoute chaque position dans un tableau
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
-            //$position[] = new Position($donnees);
+
             $position[] = $donnees;
         }
 
