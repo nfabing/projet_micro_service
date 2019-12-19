@@ -4,7 +4,7 @@ namespace App\Delivery;
 
 use PDO;
 
-require_once('Manager.php');
+require_once(__DIR__ . '/Manager.php');
 
 
 class PositionManager extends Manager
@@ -65,7 +65,7 @@ class PositionManager extends Manager
 
         //On ajoute chaque position dans un tableau
         while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
-            //$position[] = new Position($donnees);
+
             $position[] = $donnees;
         }
 

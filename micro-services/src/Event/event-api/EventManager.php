@@ -5,7 +5,7 @@ namespace App\Event;
 
 use PDO;
 
-include_once('Manager.php');
+include_once(__DIR__ . '/Manager.php');
 
 class EventManager extends Manager
 {

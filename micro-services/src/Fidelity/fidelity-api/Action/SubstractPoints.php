@@ -33,10 +33,26 @@ class SubstractPoints
                     'number' => $donneesCard['number'],
                 ]);
 
-                $card->substractPoints($donnees['number']);
-                $manager->update($card);
+                $result = $card->substractPoints($donnees['number']);
 
-                return $card->getNumber();
+                if ($result == true) {
+
+                    $manager->update($card);
+
+                    return $return = [
+                        'number' => $card->getNumber(),
+                        'result' => 'true',
+                    ];
+
+
+                } elseif ($result == false) {
+
+                    return $return = [
+                        'number' => $card->getNumber(),
+                        'result' => 'false',
+                    ];
+                }
+
 
             }
         } catch (Exception $e) {

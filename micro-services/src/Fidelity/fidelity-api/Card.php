@@ -49,6 +49,7 @@ class Card
 
     /**
      * @param $points
+     * @return bool
      * @throws Exception
      */
     public function substractPoints($points)
@@ -58,13 +59,15 @@ class Card
 
         $points = $this->getNumber() - $points;
 
+
         if ($points >= 0) {
 
             $this->setNumber($points);
+            return true;
 
         } else {
 
-            throw new Exception('Pas assez de points ! ');
+            return false;
         }
     }
 

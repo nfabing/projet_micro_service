@@ -6,9 +6,11 @@ namespace App\Event\Action;
 
 use App\Event\Event;
 use App\Event\EventManager;
+use Exception;
 
-include_once(__DIR__. '/../Event.php');
-include_once(__DIR__. '/../EventManager.php');
+
+include_once(__DIR__ . '/../Event.php');
+include_once(__DIR__ . '/../EventManager.php');
 
 class AddEvent
 {
@@ -17,29 +19,34 @@ class AddEvent
      */
     public function __invoke(array $donnees)
     {
-        if (!empty($donnees)) {
+        try {
+            if (!empty($donnees)) {
 
-            $manager = new EventManager();
+                $manager = new EventManager();
 
-            $event = new Event([
-                'email' => $donnees['email'],
-                'date' => $donnees['date'],
-                'label' => $donnees['label'],
-                'repeat' => $donnees['repeat'],
-            ]);
+                $event = new Event([
+                    'email' => $donnees['email'],
+                    'date' => $donnees['date'],
+                    'label' => $donnees['label'],
+                    'repeat' => $donnees['repeat'],
+                ]);
 
 
-            $result = $manager->add($event);
-            if ($result == false) {
-                echo 'Erreur votre requête n\'a pas abouti';
-                var_dump($event);
+                $result = $manager->add($event);
+                if ($result == false) {
 
-            } else {
-                echo 'Evénement ajouter ! <br>';
-                var_dump($event);
+                    throw new Exception('Erreur votre requête n\'a pas abouti');
+
+                } else {
+                    echo 'Evénement ajouter ! <br>';
+
+                }
             }
+        } catch (Exception $e) {
+            $e->getMessage();
         }
-        //TODO
+
+
     }
 
 }

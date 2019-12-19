@@ -4,9 +4,12 @@
 namespace App\Delivery;
 
 
+use Exception;
+
 class Position
 {
 
+    //attributs
     private $_id;
     private $_parcelNumber;
     private $_latitude;
@@ -57,8 +60,6 @@ class Position
             $this->_id = $id;
         }
 
-
-        //TODO implémenter else
     }
 
     /**
@@ -83,7 +84,6 @@ class Position
             $this->_parcelNumber = $parcelNumber;
 
         }
-
     }
 
     /**
@@ -96,6 +96,7 @@ class Position
 
     /**
      * @param float $latitude
+     * @throws Exception
      */
     public function setLatitude($latitude): void
     {
@@ -104,9 +105,9 @@ class Position
 
         if (is_float($latitude)) {
             $this->_latitude = $latitude;
+        } else {
+            throw new Exception('Latitude non valide');
         }
-
-        //TODO implémenter else
 
     }
 
@@ -120,6 +121,7 @@ class Position
 
     /**
      * @param float $longitude
+     * @throws Exception
      */
     public function setLongitude($longitude): void
     {
@@ -127,9 +129,9 @@ class Position
 
         if (is_float($longitude)) {
             $this->_longitude = $longitude;
+        } else {
+            throw new Exception('Longitude non valide');
         }
-
-        //TODO implémenter else
 
     }
 
@@ -149,8 +151,6 @@ class Position
         $this->_date = $date;
 
     }
-
-
 
 
 }
