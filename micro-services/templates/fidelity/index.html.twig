@@ -2,6 +2,11 @@
 
 {% block title %} Fidelity {% endblock %}
 
+        {% block stylesheets %}
+            {{ parent() }}
+            <link href="{{ asset("css/Fidelity/index.css") }}" rel="stylesheet">
+        {% endblock %}
+
 {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../../src/Fidelity/fidelity-client/ClientManager.js"></script>
@@ -16,10 +21,15 @@
 
     {% block content %}
 
-        <form id="formulaire" name="formulaire" method="post" action="/delivery/micro-services/public/fidelity/fetch">
-            <label for="email">E-mail : </label>
-            <input type="email" name="email">
-            <input id="emailSubmit" type="submit">
+        <form id="formulaire" name="formulaire" method="post" action="/TESTProjet/Microservice/public/fidelity/fetch">
+            <div class="wrap">
+                <div class="search">
+                    <input name="email" type="email" class="searchTerm" placeholder="Saisir votre adresse email">
+                    <button type="submit" id="emailSubmit" class="searchButton">
+                        <img src="{{ asset("img/search.png") }}">
+                    </button>
+                </div>
+            </div>
         </form>
 
     {% endblock %}

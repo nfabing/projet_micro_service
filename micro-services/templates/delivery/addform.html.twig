@@ -1,33 +1,40 @@
 {% extends 'layout.html.twig' %}
+
+        {% block stylesheets %}
+            {{ parent() }}
+            <link href="{{ asset("css/Delivery/addForm.css") }}" rel="stylesheet">
+        {% endblock %}
+
+
 {# on import les block template afin de les completer  #}
 {% block header %}
     {{ parent() }}
-    <h1 class="title">Delivery</h1>
-    </header>
+    Delivery</header>
 {% endblock %}
 {# #}
 {% block content %}
-    <form method="post" action="/delivery/micro-services/public/delivery/addtest">
+    <form method="post" action="/TESTProjet/Microservice/public/Delivery/addtest">
 
-        <div>
+        <div class="wrap">
 
-    <span>
+    <span class="ParcelNumber">
         <label>N° du Colis</label>
         <input type="text" name="parcelnumber" placeholder="N° du Colis">
     </span>
 
-            <span>
+            <span class="Longitude">
         <label>Longitude</label>
         <input type="text" name="longitude" placeholder="Longitude">
     </span>
 
-            <span>
+            <span  class="Latitude">
         <label>Latitude</label>
         <input type="text" name="latitude" placeholder="Latitude">
     </span>
 
 
-            <span>
+
+            <span class="submit">
         <input type="submit" value="send" name="SubmitForm">
     </span>
 

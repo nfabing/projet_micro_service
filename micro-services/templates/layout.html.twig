@@ -1,12 +1,15 @@
 {% extends 'base.html.twig' %}
-
+        {% block stylesheets %}
+           {{ parent() }}
+        {% endblock %}
 {% block body %}
-    {{ parent() }}
+{{ parent() }}
     {% block header %}
-        <header class="headercommon">
+        <header class="headerAPI">
+        <h1>
     {% endblock %}
 
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
 
 {% endblock %}
+            {% block javascripts %}{% endblock %}

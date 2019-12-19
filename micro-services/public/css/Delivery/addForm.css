@@ -1,0 +1,48 @@
+.wrap{
+    width: 30%;
+    height: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+input[type=text] {
+    width: 100%;
+    border: 3px solid #00B4CC;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px;
+    outline: none;
+    color: #9DBFAF;
+}
+
+input[type=text]:focus{
+    color: #00B4CC;
+}
+.ParcelNumber{
+    display: flex;align-items: center;flex-direction: column;
+}
+.Longitude{
+    display: flex;align-items: center;flex-direction: column;
+}
+.Latitude{
+    display: flex;align-items: center;flex-direction: column;
+}
+.submit{
+    display: flex;align-items: center;justify-content: center;
+}
+.submit input[type=submit]{
+    background-color: #00B4CC; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 60px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+}

@@ -1,0 +1,15 @@
+/* Style the body */
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header/Logo Title */
+.headerAPI {
+    padding: 1px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 25px;
+}
