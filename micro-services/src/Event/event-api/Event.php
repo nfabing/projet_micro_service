@@ -4,7 +4,9 @@
 namespace App\Event;
 
 
-class Event
+require_once(__DIR__ . '/Hydrate.php');
+
+class Event extends Hydrate
 {
 
     private $id;
@@ -19,21 +21,6 @@ class Event
         $this->hydrate($donnees);
     }
 
-
-    public function hydrate(array $donnees)
-    {
-        foreach ($donnees as $key => $value) {
-            $method = 'set' . ucfirst($key);
-
-            if (method_exists($this, $method)) {
-                $this->$method($value);
-
-            } else {
-                trigger_error('Setter non existant');
-            }
-        }
-
-    }
 
     /**
      * @return mixed

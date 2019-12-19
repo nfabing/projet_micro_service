@@ -15,6 +15,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 require_once(__DIR__ . '/../Delivery/delivery-api/Action/FetchAll.php');
 require_once(__DIR__ . '/../Delivery/delivery-api/Action/AddPosition.php');
 
+require_once(__DIR__ . '/../Delivery/delivery-client/DeliveryClient.php');
+
 
 class DeliveryController extends AbstractController
     /**
@@ -22,7 +24,6 @@ class DeliveryController extends AbstractController
      */
 
 {
-
     /**
      * @Route("/all", name="fetch_all", methods={"GET"})
      */
@@ -54,9 +55,7 @@ class DeliveryController extends AbstractController
         ]);
 
         return new Response($position);
-
     }
-
 
 
     /**
@@ -65,7 +64,7 @@ class DeliveryController extends AbstractController
     */
     public function find(): Response
     {
-        return $this->render('delivery/delivery.html.twig');
+        return $this->render('delivery/index.html.twig');
     }
 
     /**

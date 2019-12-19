@@ -24,6 +24,7 @@ class PositionManager extends Manager
             $q = $_db->prepare('INSERT INTO parcel(parcelNumber) VALUES(?)');
             $q->execute(array($position->getParcelNumber()));
 
+
             $q = $_db->prepare('INSERT INTO positions(parcelNumberId, latitude, longitude, date) VALUES((
             SELECT id FROM parcel WHERE parcelNumber = ?), ?, ?, ?)');
             $q->execute(array($position->getParcelNumber(), $position->getLatitude(), $position->getLongitude(), $position->getDate()));

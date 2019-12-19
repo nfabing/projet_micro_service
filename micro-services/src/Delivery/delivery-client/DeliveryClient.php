@@ -3,24 +3,24 @@
 
 namespace Delivery\Client;
 
-//use App\Delivery\fetchAll;
-//use App\Delivery\fetchPositions;
+
 use GuzzleHttp\Client;
 
-//include_once(__DIR__.'/../delivery-api/Action/fetchAll.php');
-//include_once(__DIR__.'/../delivery-api/Action/fetchPositions.php');
+
 
 class DeliveryClient extends Client
 {
+
+
     /**
      * @param string $parcelnumber
      * @return array
      */
     public function getPosition(string $parcelnumber): array
     {
-        $client = new Client(['base_uri' => 'http://localhost:8888/TESTProjet/Microservice/public/']);
+        $client = new Client(['base_uri' => '/delivery/micro-services/public/']);
 
-        $response = $client->request('GET', 'Delivery/findParcel?parcelnumber='.$parcelnumber);
+        $response = $client->request('GET', 'delivery/findParcel?parcelnumber=' . $parcelnumber);
         $positions = $response->getBody();
         $positions = json_decode($positions, true);
 
@@ -43,9 +43,9 @@ class DeliveryClient extends Client
      */
     public function getAll(): array
     {
-        $client = new Client(['base_uri' => 'http://localhost:8888/TESTProjet/Microservice/public/']);
+        $client = new Client(['base_uri' => '/delivery/micro-services/public/']);
 
-        $response = $client->request('GET', 'Delivery/all');
+        $response = $client->request('GET', 'delivery/all');
         $positions = $response->getBody();
         $positions = json_decode($positions, true);
 
@@ -54,9 +54,9 @@ class DeliveryClient extends Client
 
     public function addPosition(string $parcelnumber, string $Longitude, string $Latitude)
     {
-        $client = new Client(['base_uri' => 'http://localhost:8888/TESTProjet/Microservice/public/']);
+        $client = new Client(['base_uri' => '/delivery/micro-services/public/']);
 
-        $response = $client->request('GET', 'Delivery/addPosition?parcelnumber='.$parcelnumber.'&latitude='.$Latitude.'&longitude='.$Longitude);
+        $response = $client->request('GET', 'delivery/addPosition?parcelnumber=' . $parcelnumber . '&latitude=' . $Latitude . '&longitude=' . $Longitude);
 
         $p_number = $response->getBody();
 
