@@ -9,11 +9,14 @@
 {# on import les block template afin de les completer  #}
 {% block header %}
     {{ parent() }}
-    Delivery</header>
+    Delivery</h1></header>
 {% endblock %}
 {# #}
 {% block content %}
-    <form method="post" action="/TESTProjet/Microservice/public/Delivery/addtest">
+
+    <a href="/delivery/micro-services/public/delivery"> Retour</a>
+
+    <form method="post" action="/delivery/micro-services/public/delivery/addtest">
 
         <div class="wrap">
 
@@ -24,18 +27,17 @@
 
             <span class="Longitude">
         <label>Longitude</label>
-        <input type="text" name="longitude" placeholder="Longitude">
+        <input type="number" step="any" name="longitude" placeholder="Longitude" required>
     </span>
 
-            <span  class="Latitude">
+            <span class="Latitude">
         <label>Latitude</label>
-        <input type="text" name="latitude" placeholder="Latitude">
+        <input type="number" step="any" name="latitude" placeholder="Latitude" required>
     </span>
-
 
 
             <span class="submit">
-        <input type="submit" value="send" name="SubmitForm">
+        <input type="submit" value="Envoyer" name="SubmitForm">
     </span>
 
         </div>

@@ -1,7 +1,5 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %} Fidelity {% endblock %}
-
         {% block stylesheets %}
             {{ parent() }}
             <link href="{{ asset("css/Fidelity/index.css") }}" rel="stylesheet">
@@ -13,15 +11,16 @@
 {% endblock %}
 
 {% block body %}
+
     {% block header %}
         {{ parent() }}
-        Fidelity</h1>
+        <h1 class="title">Fidelity</h1>
         </header>
     {% endblock %}
 
     {% block content %}
 
-        <form id="formulaire" name="formulaire" method="post" action="/TESTProjet/Microservice/public/fidelity/fetch">
+        <form id="formulaire" name="formulaire" method="post" action="/delivery/micro-services/public/fidelity/fetch">
             <div class="wrap">
                 <div class="search">
                     <input name="email" type="email" class="searchTerm" placeholder="Saisir votre adresse email">

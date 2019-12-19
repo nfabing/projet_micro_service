@@ -24,6 +24,7 @@ class RemoveEvent
 
 
         } catch (Exception $e) {
+
             echo $e->getMessage();
         }
 

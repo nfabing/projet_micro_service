@@ -24,7 +24,7 @@ class EventController extends AbstractController
      */
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function Home()
     {
@@ -54,6 +54,7 @@ public function NewEvent(Request $request)
     {
     return $this->render('events/eventfetch.html.twig');
     }
+
     /**
      * @Route("/fetch", name="fetch", methods={"GET"})
      * @param Request $request

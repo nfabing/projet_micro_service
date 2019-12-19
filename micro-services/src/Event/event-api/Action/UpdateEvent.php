@@ -36,7 +36,9 @@ class UpdateEvent
             } else {
                 echo 'Evénement modifié avec succès !';
             }
+
         } catch (Exception $e) {
+
             echo $e->getMessage();
         }
 

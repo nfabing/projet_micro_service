@@ -1,7 +1,7 @@
 function ListEvents() {
     var email = $("#email").val();
     $("#demo").html("");
-    fetch("/event/fetch?email="+email)
+    fetch("/delivery/micro-services/public/event/fetch?email=" + email)
         .then((resp)=>resp.json())
         .then((Data) => {
                 console.log(Data);
@@ -43,7 +43,7 @@ function AddNewEvent(){
             method: 'POST'
         };
 
-    fetch("/event/new?email="+email+"&date="+date+"&label="+label+"&repeat="+repeat,Init)
+    fetch("/delivery/micro-services/public/event/new?email=" + email + "&date=" + date + "&label=" + label + "&repeat=" + repeat, Init)
         .then((Data) => {
                 console.log(Data);
                 alert("L'événement à été ajouté");
@@ -60,7 +60,7 @@ function RemoveEvent(){
             method: 'POST'
         };
 
-    fetch("/event/remove?id="+id,Init)
+    fetch("/delivery/micro-services/public/event/remove?id=" + id, Init)
         .then((Data) => {
             alert("L'événement à été supprimé");
             }
@@ -82,7 +82,7 @@ function UpdateEvent(){
             method: 'POST'
         };
 
-    fetch("/event/update?id="+id+"&email="+email+"&date="+date+"&label="+label+"&repeat="+repeat,Init)
+    fetch("/delivery/micro-services/public/event/update?id=" + id + "&email=" + email + "&date=" + date + "&label=" + label + "&repeat=" + repeat, Init)
         .then((Data) => {
                 alert("L'événement à été modifié");
             }

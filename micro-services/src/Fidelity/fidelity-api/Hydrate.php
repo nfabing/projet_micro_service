@@ -4,11 +4,14 @@
 namespace App\Fidelity;
 
 
+use Exception;
+
 class Hydrate
 {
 
     /**
      * @param array $donnees
+     * @throws Exception
      */
     public function hydrate(array $donnees)
     {
@@ -18,7 +21,7 @@ class Hydrate
             if (method_exists($this, $method)) {
                 $this->$method($value);
             } else {
-                trigger_error('Setter non existant');
+                throw new Exception('Setter non existant');
             }
         }
     }

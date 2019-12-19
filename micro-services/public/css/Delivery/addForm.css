@@ -10,7 +10,7 @@
     justify-content: space-around;
 }
 
-input[type=text] {
+input[type=text], input[type=number] {
     width: 100%;
     border: 3px solid #00B4CC;
     padding: 5px;
@@ -20,20 +20,32 @@ input[type=text] {
     color: #9DBFAF;
 }
 
-input[type=text]:focus{
+input[type=text]:focus, input[type=number]:focus {
     color: #00B4CC;
 }
-.ParcelNumber{
-    display: flex;align-items: center;flex-direction: column;
+
+.ParcelNumber {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-.Longitude{
-    display: flex;align-items: center;flex-direction: column;
+
+.Longitude {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-.Latitude{
-    display: flex;align-items: center;flex-direction: column;
+
+.Latitude {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
-.submit{
-    display: flex;align-items: center;justify-content: center;
+
+.submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .submit input[type=submit]{
     background-color: #00B4CC; /* Green */

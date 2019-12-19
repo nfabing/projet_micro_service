@@ -37,13 +37,10 @@ class AddEvent
 
                     throw new Exception('Erreur votre requête n\'a pas abouti');
 
-                } else {
-                    echo 'Evénement ajouter ! <br>';
-
                 }
             }
         } catch (Exception $e) {
-            $e->getMessage();
+           echo $e->getMessage();
         }
 
 

@@ -4,16 +4,18 @@
 namespace App\Event;
 
 
+use Exception;
+
 require_once(__DIR__ . '/Hydrate.php');
 
 class Event extends Hydrate
 {
 
-    private $id;
-    private $email;
-    private $date;
-    private $label;
-    private $repeat = 0;
+    private $_id;
+    private $_email;
+    private $_date;
+    private $_label;
+    private $_repeat = 0;
 
 
     public function __construct(array $donnees)
@@ -27,7 +29,7 @@ class Event extends Hydrate
      */
     public function getId()
     {
-        return $this->id;
+        return $this->_id;
     }
 
     /**
@@ -37,7 +39,7 @@ class Event extends Hydrate
     {
         $id = (int)$id;
         if ($id > 0) {
-            $this->id = $id;
+            $this->_id = $id;
         }
 
     }
@@ -47,15 +49,22 @@ class Event extends Hydrate
      */
     public function getEmail()
     {
-        return $this->email;
+        return $this->_email;
     }
 
     /**
      * @param mixed $email
+     * @throws Exception
      */
     public function setEmail($email): void
     {
-        $this->email = $email;
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $this->_email = $email;
+        } else {
+
+            throw new Exception('Email non valide !');
+
+        }
     }
 
     /**
@@ -63,7 +72,7 @@ class Event extends Hydrate
      */
     public function getDate()
     {
-        return $this->date;
+        return $this->_date;
     }
 
     /**
@@ -72,7 +81,7 @@ class Event extends Hydrate
     public function setDate($date): void
     {
         //TODO Vérifier si la date est bien valide
-        $this->date = $date;
+        $this->_date = $date;
     }
 
     /**
@@ -80,7 +89,7 @@ class Event extends Hydrate
      */
     public function getLabel()
     {
-        return $this->label;
+        return $this->_label;
     }
 
     /**
@@ -96,7 +105,7 @@ class Event extends Hydrate
      */
     public function getRepeat()
     {
-        return $this->repeat;
+        return $this->_repeat;
     }
 
     /**
@@ -107,7 +116,7 @@ class Event extends Hydrate
         $repeat = (int)$repeat;
 
         if (is_int($repeat)) {
-            $this->repeat = $repeat;
+            $this->_repeat = $repeat;
         }
 
     }

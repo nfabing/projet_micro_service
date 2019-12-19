@@ -13,26 +13,27 @@
     {% endblock %}
     {% block content %}
 
-        <form method="get" action="/TESTProjet/Microservice/public/Delivery/parcelnumber">
+        <form method="get" action="/delivery/micro-services/public/delivery/parcelnumber">
 
 
-    <div class="wrap">
-        <div class="search">
-            <input name="parcelnumber" type="text" class="searchTerm" placeholder="N° de colis">
-            <button type="submit" class="searchButton">
-            <img src="{{ asset("img/search.png") }}">
-            </button>
-        </div>
-    </div>
+            <div class="wrap">
+                <div class="search">
+                    <input name="parcelnumber" type="text" class="searchTerm" placeholder="N° de colis">
+                    <button type="submit" class="searchButton">
+                        <img src="{{ asset("img/search.png") }}">
+                    </button>
+                </div>
+                {% if data.erreur is defined %}
+                    {{ data.erreur }}
+                {% endif %}
+                {% if data.status is defined %}
+                    {{ data.status }}
+                {% endif %}
+            </div>
 
-    {#<input name="parcelnumber" type="text" placeholder=" N° de colis" maxlength="10">
-    <input type="submit" value="Trouver">#}
+        </form>
 
-</form>
-
-        <a href="/TESTProjet/Microservice/public/Delivery/new"> Ajouter une position</a>
-
-
+        <a href="/delivery/micro-services/public/delivery/new"> Ajouter une position</a>
 
     {% endblock %}
 {% endblock %}
