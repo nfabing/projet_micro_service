@@ -11,7 +11,7 @@ class Manager
     const HOST_NAME = 'localhost';
     const DATABASE = 'transport';
     const USER_NAME = 'root';
-    const PASSWORD = '';
+    const PASSWORD = 'root';
 
     public function connect()
     {

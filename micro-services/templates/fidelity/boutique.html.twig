@@ -2,17 +2,73 @@
 {# on import les block template afin de les completer  #}
 {% block header %}
     {{ parent() }}
-    Boutique Fidelity</header>
+    Boutique Fidelity</h1></header>
 {% endblock %}
 {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../../src/Fidelity/fidelity-client/ClientManager.js"></script>
 {% endblock %}
 {% block content %}
-    <h2> Bienvenus <span id="emailClient">{{ client.email }}</span></h2><br>
+    <header style="display: flex; justify-content: space-around; align-items: center; height: 30px; background:  #2c3e50; margin: 0;color: white;">
+    <h2> Bienvenus <span id="emailClient">{{ client.email }}</span></h2>
     <h2> Solde de points : <span id="pointsClient">{{ client.number }}</span></h2>
 
     <button id="addPoints"> Ajouter Point</button>
+    </header>
+<style>
+    .content-div{
+        position: absolute; margin:0; padding: 5px;display: flex; justify-content: center;align-items: center;
+        width: 100%;
+    }
+    .content-div .card{
+        height: 400px;width: 250px;margin:15px;display: flex;justify-content: space-around;flex-direction: column;align-items: center;
+        background-color: #9DBFAF;border-radius: 5px;
+    }
+    .content-div .card img{
+        height: 150px;width: 200px;;
+    }
+    .content-div .card button {
+         background-color: #4CAF50; /* Green */
+         border: none;
+         color: white;
+         padding: 15px 32px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+     }
+    .content-div .card .grise {
+        background-color: #95a5a6; /* grisé */
 
+    }
+</style>
+
+    <div class="content-div">
+        <span class="card">
+            <img src="{{ asset("img/imgbase.jpg") }}">
+            <span class="title">Titre</span>
+            <span class="descript">Description de la vie</span>
+<button id="substractpoint50" {%  if client.number < 50 %} class="grise"{% endif %} onclick="return substractpoint(50)" value="50">50 points</button>
+        </span>
+        <span class="card">
+            <img src="{{ asset("img/imgbase.jpg") }}">
+            <span class="title">Titre</span>
+            <span class="descript">Description de la vie</span>
+<button id="substractpoint150" {%  if client.number < 150 %} class="grise"{% endif %} onclick="return substractpoint(150)" value="150">150 points</button>
+        </span>
+        <span class="card">
+            <img src="{{ asset("img/imgbase.jpg") }}">
+            <span class="title">Titre</span>
+            <span class="descript">Description de la vie</span>
+<button id="substractpoint200" {%  if client.number < 200 %} class="grise"{% endif %} onclick="return substractpoint(200)" value="200">200 points</button>
+        </span>
+        <span class="card">
+            <img src="{{ asset("img/imgbase.jpg") }}">
+            <span class="title">Titre</span>
+            <span class="descript">Description de la vie</span>
+<button id="substractpoint500" {%  if client.number < 500 %} class="grise"{% endif %} onclick="return substractpoint(500)" value="500">500 points</button>
+        </span>
+
+    </div>
 
 {% endblock %}

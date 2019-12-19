@@ -58,11 +58,11 @@ class DeliveryController extends AbstractController
     }
 
 
-    /*
+
     /**
      * @Route("/", name="delivery_find")
      *
-
+    */
     public function find(): Response
     {
         return $this->render('delivery/delivery.html.twig');
@@ -71,7 +71,7 @@ class DeliveryController extends AbstractController
     /**
      * @Route("/new", name="delivery_form")
      *
-
+*/
     public function form(): Response
     {
         return $this->render('delivery/addform.html.twig');
@@ -81,13 +81,13 @@ class DeliveryController extends AbstractController
      * @Route("/parcelnumber", name="delivery_Parcelnumber")
      * @param Request $request
      * @return Response
-
+*/
     public function Parcelnumber(Request $request)
     {
         $parcelnumber = $request->query->get('parcelnumber');
 
         $client = new DeliveryClient();
-        $positions = $client->getPosition($parcelnumber);
+        $positions = $client->getAll();
 
         return $this->render('delivery/getPosition.html.twig', [
             'position' => $positions,
@@ -96,10 +96,10 @@ class DeliveryController extends AbstractController
 
     /**
      * @Route("/add",methods={"POST"}, name="delivery_addParcel")
-
+*/
     public function addParcel()
     {
         //TODO: utiliser/modifier addPosition constructeur different si colis ext ou non
     }
-*/
+
 }

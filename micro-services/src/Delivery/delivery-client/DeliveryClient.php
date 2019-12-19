@@ -3,12 +3,12 @@
 
 namespace Delivery\Client;
 
-use App\Delivery\fetchAll;
-use App\Delivery\fetchPositions;
+//use App\Delivery\fetchAll;
+//use App\Delivery\fetchPositions;
 use GuzzleHttp\Client;
 
-include_once(__DIR__.'/../delivery-api/Action/fetchAll.php');
-include_once(__DIR__.'/../delivery-api/Action/fetchPositions.php');
+//include_once(__DIR__.'/../delivery-api/Action/fetchAll.php');
+//include_once(__DIR__.'/../delivery-api/Action/fetchPositions.php');
 
 class DeliveryClient extends Client
 {
@@ -18,10 +18,13 @@ class DeliveryClient extends Client
      */
     public function getPosition(string $parcelnumber): array
     {
-        $obj = new fetchPositions();
-        $position = $obj($parcelnumber);
+        $client = new Client(['base_uri' => 'http://localhost:8888/TESTProjet/Microservice/public/']);
 
-        return $position;
+        $response = $client->request('GET', 'Delivery/findParcel?parcelnumber='.$parcelnumber);
+        $positions = $response->getBody();
+        $positions = json_decode($positions, true);
+
+        return $positions;
     }
 
     /**
@@ -29,14 +32,35 @@ class DeliveryClient extends Client
      */
     public function getAllPosition(): array
     {
-        $obj = new fetchAll;
+      /*  $obj = new fetchAll;
         $position = $obj();
 
-        return $position;
+        return $position;*/
     }
 
-    public function addPosition(string $nColis, string $Latitude, string $Longitude, string $date): string
+    /**
+     * @return array
+     */
+    public function getAll(): array
     {
+        $client = new Client(['base_uri' => 'http://localhost:8888/TESTProjet/Microservice/public/']);
+
+        $response = $client->request('GET', 'Delivery/all');
+        $positions = $response->getBody();
+        $positions = json_decode($positions, true);
+
+        return $positions;
+    }
+
+    public function addPosition(string $parcelnumber, string $Longitude, string $Latitude)
+    {
+        $client = new Client(['base_uri' => 'http://localhost:8888/TESTProjet/Microservice/public/']);
+
+        $response = $client->request('GET', 'Delivery/addPosition?parcelnumber='.$parcelnumber.'&latitude='.$Latitude.'&longitude='.$Longitude);
+
+        $p_number = $response->getBody();
+
+        $p_number = json_decode($p_number, true);
 
     }
 
