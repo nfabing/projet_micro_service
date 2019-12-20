@@ -51,3 +51,13 @@ input[type=number] {
     display: inline;
     background-color: white;
 }
+.button
+{
+    font-weight: bold;
+    background-color: #1abc9c;
+}
+.event
+{
+    text-align: center;
+    background-color: #1abc9c;
+}
