@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 11 déc. 2019 à 18:49
+-- Généré le :  ven. 20 déc. 2019 à 09:19
 -- Version du serveur :  10.4.8-MariaDB
 -- Version de PHP :  7.3.11
 
@@ -29,20 +29,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `evenements` (
-  `id` int(11) NOT NULL,
-  `email` varchar(80) NOT NULL,
-  `date` datetime NOT NULL,
-  `label` varchar(255) NOT NULL,
-  `repeatday` int(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+                              `id`        int(11)      NOT NULL,
+                              `email`     varchar(80)  NOT NULL,
+                              `date`      datetime     NOT NULL,
+                              `label`     varchar(255) NOT NULL,
+                              `repeatday` int(6)       NOT NULL
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
 
 --
 -- Déchargement des données de la table `evenements`
 --
 
-INSERT INTO `evenements` (`id`, `email`, `date`, `label`, `repeatday`) VALUES
-(5, 'nicofabing@gmail.com', '2019-12-15 15:00:00', 'Aller chez le coiffeur', 14),
-(6, 'yanis@gmail.com', '2019-12-15 15:00:00', 'Aller chez le coiffeur', 14);
+INSERT INTO `evenements` (`id`, `email`, `date`, `label`, `repeatday`)
+VALUES (5, 'nicofabing@gmail.com', '2019-12-20 18:00:00', 'Acheter du lait', 7),
+       (8, 'yanis@gmail.com', '2019-12-15 15:00:00', 'Aller chez le coiffeur', 14);
 
 --
 -- Index pour les tables déchargées
@@ -52,7 +53,7 @@ INSERT INTO `evenements` (`id`, `email`, `date`, `label`, `repeatday`) VALUES
 -- Index pour la table `evenements`
 --
 ALTER TABLE `evenements`
-  ADD PRIMARY KEY (`id`);
+    ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -62,9 +63,10 @@ ALTER TABLE `evenements`
 -- AUTO_INCREMENT pour la table `evenements`
 --
 ALTER TABLE `evenements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
+    AUTO_INCREMENT = 10;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS = @OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION = @OLD_COLLATION_CONNECTION */;

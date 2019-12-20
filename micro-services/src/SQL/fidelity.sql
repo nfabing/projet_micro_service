@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mer. 11 déc. 2019 à 18:49
+-- Généré le :  ven. 20 déc. 2019 à 09:20
 -- Version du serveur :  10.4.8-MariaDB
 -- Version de PHP :  7.3.11
 
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `client`
 (
-    `id`     int(11)     NOT NULL,
-    `email`  varchar(80) NOT NULL,
-    `number` int(11)     NOT NULL
+  `id`     int(11)     NOT NULL,
+  `email`  varchar(80) NOT NULL,
+  `number` int(11)     NOT NULL
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
@@ -41,8 +41,10 @@ CREATE TABLE `client`
 --
 
 INSERT INTO `client` (`id`, `email`, `number`)
-VALUES (1, 'nicofabing@gmail.com', 2450),
-       (2, 'nicolasfabing@gmail.com', 50);
+VALUES (1, 'nicofabing@gmail.com', 300),
+       (2, 'nicolasfabing@gmail.com', 50),
+       (4, 'simonk@gmail.com', 50),
+       (5, 'test@test.com', 50);
 
 --
 -- Index pour les tables déchargées
@@ -52,7 +54,7 @@ VALUES (1, 'nicofabing@gmail.com', 2450),
 -- Index pour la table `client`
 --
 ALTER TABLE `client`
-    ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -62,8 +64,8 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-    MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
-    AUTO_INCREMENT = 3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,
+  AUTO_INCREMENT = 6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT = @OLD_CHARACTER_SET_CLIENT */;
