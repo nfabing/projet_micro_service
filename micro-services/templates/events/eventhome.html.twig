@@ -16,16 +16,18 @@
 
     {% block content %}
         <div class="inputfield">
-        <br>
+            <br>
             Date: <input type="date" id="jour_input">Email: <input type="text" id="email">
-        <button id="getevent" onclick="ListEvents()">Récupèrer les événements associés à cet email</button>
+            <button id="getevent" onclick="ListEvents()">Récupèrer les événements</button>
         </div>
         <p id="demo"><br></p>
         <div class="modes">
-        <input type="radio" name="action" id="update" onclick="if(this.checked){UpdateWindow()}">Modifier un Event<input type="radio" name="action" id="delete" onclick="if(this.checked){DeleteWindow()}">Supprimer un Event<input type="radio" name="action" id="add" onclick="if(this.checked){AddWindow()}">Ajouter un Event
+            <input type="radio" name="action" id="update" onclick="if(this.checked){UpdateWindow()}">Modifier un
+            Event<input type="radio" name="action" id="delete" onclick="if(this.checked){DeleteWindow()}">Supprimer un
+            Event<input type="radio" name="action" id="add" onclick="if(this.checked){AddWindow()}">Ajouter un Event
         </div>
         <div id="deletewindow" style="display: none" class="window">
-            Id de l'événement à supprimer: <input type="text" id="id_d">
+            ID de l'événement à supprimer : <input type="text" id="id_d">
             <br>
             <br>
             <button id="removeevent" onclick="RemoveEvent()">Supprimer un event</button>
@@ -33,25 +35,28 @@
         <div id="updatewindow" style="display: none" class="window">
             Id de l'événement à modifier: <input type="text" id="id_u">
             <br>
-            Jour:<input type="date" id="day">
+            Jour : <input type="date" id="day">
             <br>
-            Heure:<p class="time"><input type="number" id="hour">:<input type="number" id="min">:<input type="number" id="sec"></p>
+            Heure : <p class="time"><input type="number" id="hour" value="00">:<input type="number" id="min" value="00">:<input
+                        type="number" id="sec" value="00"></p>
             <br>
-            Description:<input type="text" id="label">
+            Description : <input type="text" id="label">
             <br>
-            Repétition:<input type="number" id="repeat">
+            Répétition : <input type="number" id="repeat">
             <br>
             <br>
             <button id="updateevent" onclick="UpdateEvent()">Modifier un event</button>
         </div>
         <div id="addwindow" style="display: none" class="window">
-            Jour:<input type="date" id="day_n">
+            Jour : <input type="date" id="day_n">
             <br>
-            Heure:<p class="time"><input type="number" id="hour_n">:<input type="number" id="min_n">:<input type="number" id="sec_n"></p>
+            Heure : <p class="time"><input type="number" id="hour_n" value="00">:
+                <input type="number" id="min_n" value="00">:
+                <input type="number" id="sec_n" value="00"></p>
             <br>
-            Description:<input type="text" id="label_n">
+            Description : <input type="text" id="label_n">
             <br>
-            Repétition:<input type="number" id="repeat_n">
+            Repétition : <input type="number" id="repeat_n">
             <br>
             <br>
             <button id="addevent" onclick="AddNewEvent()">Ajouter un event</button>

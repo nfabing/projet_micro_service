@@ -28,8 +28,13 @@
                         <img src="{{ asset("img/search.png") }}">
                     </button>
                 </div>
+                {% if data.erreur is defined %}
+                    {{ data.erreur }}
+                {% endif %}
             </div>
+
         </form>
+
 
     {% endblock %}
 {% endblock %}

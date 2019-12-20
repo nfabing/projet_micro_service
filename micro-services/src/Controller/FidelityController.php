@@ -63,14 +63,20 @@ class FidelityController extends AbstractController
         $fetch = new fetchCard();
         $client = $fetch($email);
 
+        if (isset($client['email']) && isset($client['number'])) {
+            return $this->render('fidelity/boutique.html.twig', array(
+                'client' => array(
+                    'email' => $client['email'],
+                    'number' => $client['number'],
+                ),
+            ));
+        }
 
-        return $this->render('fidelity/boutique.html.twig', array(
-            'client' => array(
-                'email' => $client['email'],
-                'number' => $client['number']
+        return $this->render('fidelity/index.html.twig', array(
+            'data' => array(
+                'erreur' => 'Compte inexistant !',
             ),
         ));
-
     }
 
     /**

@@ -24,7 +24,7 @@ class EventController extends AbstractController
      */
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function Home()
     {
@@ -76,7 +76,6 @@ public function FetchEvent(Request $request)
         $donnees=array("id"=>$id,"email"=>$email,"date"=>$date,"label"=>$label,"repeat"=>$repeat);
         $update = new UpdateEvent();
         $client = $update($donnees);
-
 
         return new JsonResponse($client);
     }

@@ -46,7 +46,7 @@ function AddNewEvent(){
     fetch("/delivery/micro-services/public/event/new?email=" + email + "&date=" + date + "&label=" + label + "&repeat=" + repeat, Init)
         .then((Data) => {
                 console.log(Data);
-                alert("L'événement à été ajouté");
+            alert("L'événement a été ajouté");
             }
         )
         .catch(error => $("#demo").append(error));
