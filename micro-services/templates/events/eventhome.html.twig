@@ -18,17 +18,17 @@
         <div class="inputfield">
         <br>
             Date: <input type="date" id="jour_input">Email: <input type="text" id="email">
-        <button id="getevent" class="button" onclick="ListEvents()">Récupèrer les événements associés à cet email</button>
+        <button id="getevent" onclick="ListEvents()">Récupèrer les événements associés à cet email</button>
         </div>
         <p id="demo"><br></p>
         <div class="modes">
         <input type="radio" name="action" id="update" onclick="if(this.checked){UpdateWindow()}">Modifier un Event<input type="radio" name="action" id="delete" onclick="if(this.checked){DeleteWindow()}">Supprimer un Event<input type="radio" name="action" id="add" onclick="if(this.checked){AddWindow()}">Ajouter un Event
         </div>
         <div id="deletewindow" style="display: none" class="window">
-            Id de l'événement à supprimer: <input type="text"  id="id_d">
+            Id de l'événement à supprimer: <input type="text" id="id_d">
             <br>
             <br>
-            <button id="removeevent" class="button" onclick="RemoveEvent()">Supprimer un event</button>
+            <button id="removeevent" onclick="RemoveEvent()">Supprimer un event</button>
         </div>
         <div id="updatewindow" style="display: none" class="window">
             Id de l'événement à modifier: <input type="text" id="id_u">
@@ -42,7 +42,7 @@
             Repétition:<input type="number" id="repeat">
             <br>
             <br>
-            <button id="updateevent" class="button" onclick="UpdateEvent()">Modifier un event</button>
+            <button id="updateevent" onclick="UpdateEvent()">Modifier un event</button>
         </div>
         <div id="addwindow" style="display: none" class="window">
             Jour:<input type="date" id="day_n">
@@ -54,8 +54,7 @@
             Repétition:<input type="number" id="repeat_n">
             <br>
             <br>
-            <button id="addevent" class="button" onclick="AddNewEvent()">Ajouter un event</button>
+            <button id="addevent" onclick="AddNewEvent()">Ajouter un event</button>
         </div>
-
     {% endblock %}
 {% endblock %}
